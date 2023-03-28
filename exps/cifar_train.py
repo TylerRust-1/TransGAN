@@ -2,6 +2,9 @@
 
 import os
 import argparse
+import torch
+
+print(torch.cuda.is_available())
 
 def parse_args():
     parser = argparse.ArgumentParser()
@@ -12,7 +15,7 @@ def parse_args():
     return opt
 args = parse_args()
 
-os.system(f"CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 python train_derived.py \
+os.system(f"python train_derived.py \
 -gen_bs 128 \
 -dis_bs 64 \
 --dist-url 'tcp://localhost:14256' \
@@ -56,3 +59,4 @@ os.system(f"CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 python train_derived.py \
 --ema 0.9999 \
 --diff_aug translation,cutout,color \
 --exp_name cifar_train")
+print("done")

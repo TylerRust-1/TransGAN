@@ -2,6 +2,7 @@
 
 import os
 import argparse
+import torch 
 
 def parse_args():
     parser = argparse.ArgumentParser()
@@ -12,7 +13,13 @@ def parse_args():
     return opt
 args = parse_args()
 
-os.system(f"CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 python test.py \
+
+print("VALUES")
+print("Torch version: ", torch.__version__)
+print("Cuda Toolkit version: ", torch.version.cuda)
+print("Cuda Available: ", torch.cuda.is_available())
+
+os.system(f"python test.py \
 -gen_bs 128 \
 -dis_bs 64 \
 --dist-url 'tcp://localhost:14256' \
@@ -55,5 +62,5 @@ os.system(f"CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 python test.py \
 --ema_warmup 0.1 \
 --ema 0.9999 \
 --diff_aug translation,cutout,color \
---load_path ./cifar_checkpoint \
+--load_path ./cifar_checkpoint/data/4988112816 \
 --exp_name cifar_train")
