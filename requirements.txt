@@ -5,7 +5,7 @@ numpy
 einops
 pillow
 python-dateutil==2.7.3
-torch
+torch==1.7.1
 torchvision
 tensorboard
 tensorboardX

@@ -62,5 +62,5 @@ os.system(f"python test.py \
 --ema_warmup 0.1 \
 --ema 0.9999 \
 --diff_aug translation,cutout,color \
---load_path ./cifar_checkpoint/data/4988112816 \
+--load_path ./cifar_checkpoint/archive/data.pkl \
 --exp_name cifar_train")
